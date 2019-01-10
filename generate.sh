@@ -1,19 +1,19 @@
 # !/usr/bin/bash
 
-BASE_HREF=$1
-
 set -e
 
-cd ~/IdeaProjects/bbuhot/bbuhot_client
-npm build --base_href=/${BASE_HREF} --prod
+source generate.config.sh
 
-cd ~/github/SingerofDarkNight.github.io
+cd ${client_repo}/bbuhot_client
+npm build --base_href=/${base_href} --prod
+
+cd ${github_page_repo}
 
 git pull
 
-cp -r ~/IdeaProjects/bbuhot/bbuhot_client/dist/Gotham-Spinach .
+cp -r ${client_repo}/bbuhot_client/dist/Gotham-Spinach .
 rm -rf ${BASE_HREF} || true
-mv Gotham-Spinach ${BASE_HREF}
+mv Gotham-Spinach ${base_href}
 
 git add .
 git commit -am "Upload again."
