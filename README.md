@@ -9,6 +9,18 @@ Then copy files from `dist/Gotham-Spinach` to `/v2` under this repo.
 ## nginx config
 ```
         location /v2/ {
-                proxy_pass https://singerofdarknight.github.io/v2/;
+                proxy_pass https://singerofdarknight.github.io;
         }
+
+        location /experiment/ {
+                proxy_pass https://singerofdarknight.github.io;
+        }
+
 ```
+
+## Generate your own build without conflict with others
+Example
+```
+ng build --base_href=/experiment/yhvictor --prod
+```
+Then put everything under from `dist/Gotham-Spinach` to `/experiment/yhvictor`.
