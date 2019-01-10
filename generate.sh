@@ -12,9 +12,9 @@ cd ${github_page_repo}
 git pull
 
 cp -r ${client_repo}/bbuhot_client/dist/Gotham-Spinach .
-rm -rf ${BASE_HREF} || true
+rm -rf ${base_href} || true
 mv Gotham-Spinach ${base_href}
 
-git add .
+git add ${base_href}
 git commit -am "Upload again."
 git push
