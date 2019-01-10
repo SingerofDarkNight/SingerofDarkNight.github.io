@@ -5,7 +5,7 @@ set -e
 source generate.config.sh
 
 cd ${client_repo}/bbuhot_client
-ng build --base_href=/${base_href} --prod
+ng build --base_href='\${base_href}' --prod
 
 cd ${github_page_repo}
 
